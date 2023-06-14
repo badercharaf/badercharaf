@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>عرض الكاميرا</title>
+</head>
+<body>
+    <video id="video" width="640" height="480" autoplay></video>
+    
+    <script>
+        // الحصول على إذن الوصول لكاميرا الويب
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                var videoElement = document.getElementById('video');
+                videoElement.srcObject = stream;
+            })
+            .catch(function(error) {
+                console.log('حدث خطأ في الوصول إلى كاميرا الويب: ', error);
+            });
+    </script>
+</body>
+</html>
